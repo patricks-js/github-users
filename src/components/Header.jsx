@@ -28,7 +28,7 @@ export const Header = () => {
             />
           </label>
           <button
-            className="cursor-pointer flex items-center border-l-0 border border-gray-300 pr-2 rounded-tr rounded-br"
+            className="cursor-pointer flex items-center border-l-0 border border-gray-300 px-2 rounded-tr rounded-br"
             onClick={setUser}
           >
             <img src={loop} alt="loop" className="w-4 " />

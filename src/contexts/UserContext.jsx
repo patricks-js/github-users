@@ -15,6 +15,11 @@ export const UserContextProvider = ({ children }) => {
     username: "",
     avatar: "",
     bio: "",
+    followers: "",
+    following: "",
+    location: "",
+    blog: "",
+    company: "",
   });
 
   useEffect(() => {
@@ -26,6 +31,11 @@ export const UserContextProvider = ({ children }) => {
           username: data.login,
           avatar: data.avatar_url,
           bio: data.bio,
+          followers: data.followers,
+          following: data.following,
+          location: data.location,
+          blog: data.blog,
+          company: data.company,
         });
       })();
     } else {
