@@ -12,8 +12,8 @@ export const Header = () => {
   }
   return (
     <header className="w-full h-20 bg-slate-800 border-b border-gray-600 ">
-      <div className="container mx-auto h-full w-full flex items-center justify-between">
-        <img src={logo} alt="Logo GitHub" className="h-5/6" />
+      <div className="c-container px-2 sm:px-8 mx-auto h-full w-full flex items-center justify-between">
+        <img src={logo} alt="Logo GitHub" className="w-16" />
         <fieldset className="flex">
           <label htmlFor="search">
             <span className="sr-only">Search User</span>

@@ -6,9 +6,9 @@ export const UserContext = createContext();
 export const UserContextProvider = ({ children }) => {
   const url = "https://api.github.com/users";
 
-  const [gitUser, setGitUser] = useState("");
-
   const [slug, setSlug] = useState("");
+
+  const [gitUser, setGitUser] = useState("");
 
   const [dataUser, setDataUser] = useState({
     name: "",
@@ -21,6 +21,10 @@ export const UserContextProvider = ({ children }) => {
     blog: "",
     company: "",
   });
+
+  const [reposUser, setReposUser] = useState([]);
+
+  // Treatment of user data
 
   useEffect(() => {
     if (slug !== "") {
@@ -38,12 +42,26 @@ export const UserContextProvider = ({ children }) => {
           company: data.company,
         });
       })();
-    } else {
-      console.log("Waiting for data");
     }
   }, [slug]);
+
+  // Processing of repository data
+
+  useEffect(() => {
+    if (slug !== "") {
+      (async () => {
+        const { data } = await axios.get(`${url}/${slug}/repos`);
+        data.forEach((repo) => {
+          setReposUser((prev) => [...prev, repo]);
+        });
+      })();
+    }
+  }, [slug]);
+
   return (
-    <UserContext.Provider value={{ gitUser, setGitUser, setSlug, dataUser }}>
+    <UserContext.Provider
+      value={{ gitUser, setGitUser, setSlug, dataUser, url, reposUser }}
+    >
       {children}
     </UserContext.Provider>
   );
