@@ -25,6 +25,7 @@ export const Header = () => {
               className="outline-none border border-gray-300 bg-transparent pl-2 p-1 border-r-0 rounded-tl rounded-bl"
               onChange={(e) => setGitUser(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && setUser()}
+              value={gitUser}
             />
           </label>
           <button

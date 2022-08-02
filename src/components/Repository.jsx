@@ -19,11 +19,11 @@ export const Repository = ({
         </a>
         {description && <p className=" text-gray-400 text-sm">{description}</p>}
       </div>
-      <div className="flex-1 justify-end">
-        <div className="">
+      <div className="flex-1">
+        <div className="text-right">
           Stars: <span>{stargazers_count}</span>
         </div>
-        <div id="techs" className="">
+        <div id="techs" className="text-right">
           Technology: <span className="italic ">{language}</span>
         </div>
       </div>
